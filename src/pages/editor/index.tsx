@@ -1,4 +1,4 @@
-import SideNav from '../../components/sidenav';
+import SideNav from '../../components/sideNav';
 
 function Editor() {
   return <SideNav />;

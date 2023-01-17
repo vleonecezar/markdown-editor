@@ -2,18 +2,12 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Navigation = styled.nav`
-  background-color: #555;
+  background-color: var(--primary-purple);
   width: 250px;
   height: 100%;
   position: fixed;
   top: 0;
   left: 0;
-`;
-
-export const NavigationList = styled.ul`
-  list-style: none;
-  padding: 0;
-  margin: 0;
 `;
 
 export const NavigationLink = styled(Link)`
@@ -23,9 +17,9 @@ export const NavigationLink = styled(Link)`
   display: block;
   padding: 25px 0;
   text-align: center;
-  transition: hover 0.4s;
+  transition: 0.2s;
 
   &:hover {
-    background-color: #333;
+    background-color: var(--secondary-purple);
   }
 `;

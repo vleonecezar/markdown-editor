@@ -1,9 +1,9 @@
-import { Navigation, NavigationLink, NavigationList } from './styled';
+import { Navigation, NavigationLink } from './styled';
 
 function SideNav() {
   return (
     <Navigation>
-      <NavigationList>
+      <ul>
         <li>
           <NavigationLink to="/">Files</NavigationLink>
         </li>
@@ -13,7 +13,7 @@ function SideNav() {
         <li>
           <NavigationLink to="/">New File</NavigationLink>
         </li>
-      </NavigationList>
+      </ul>
     </Navigation>
   );
 }
