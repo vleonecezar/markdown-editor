@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Button from '../button/styled';
+import Button from '../button';
 
 export const HeaderContainer = styled.header`
   background-color: var(--primary-color);
