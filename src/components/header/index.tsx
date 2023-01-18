@@ -6,7 +6,7 @@ function Header() {
       <FileCount>Total Files: 0</FileCount>
       <div>
         <FileName>File Name</FileName>
-        <SaveButton>Save</SaveButton>
+        <SaveButton type="button">Save</SaveButton>
       </div>
     </HeaderContainer>
   );
