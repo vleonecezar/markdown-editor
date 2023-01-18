@@ -2,8 +2,10 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
     :root {
-        --primary-purple: rgb(89, 65, 169);
-        --secondary-purple: rgb(62,46,118);
+        --primary-color: rgb(40,40,40);
+        --secondary-color: rgb(30,30,30);
+        --action-color: rgb(40, 146, 215);
+        --text-color: white;
     }
     
     * {
@@ -12,13 +14,19 @@ const GlobalStyle = createGlobalStyle`
         padding: 0;
     }
 
-    ul {
-        list-style: none;
+    body {
+        width: 100vw;
+        height: 100vh;
     }
 
     a {
         text-decoration: none;
     } 
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
 `;
 
 export default GlobalStyle;
