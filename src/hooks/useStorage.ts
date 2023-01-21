@@ -1,17 +1,23 @@
 import { useEffect, useState } from 'react';
-import { File } from '../types';
+import { FilesState } from '../types';
 
 function useStorage() {
-  const getStoredFiles: File[] =
-    JSON.parse(localStorage.getItem('files') as string) || [];
-  const [storedFiles, setStoredFiles] = useState<File[]>(getStoredFiles);
+  const getStoredFiles = (): FilesState => {
+    return JSON.parse(localStorage.getItem('files') as string) || [];
+  };
 
-  const handleStoredFiles = (files: File[]) => {
+  const [storedFiles, setStoredFiles] = useState<FilesState>(getStoredFiles());
+
+  const handleStoredFiles = (files: FilesState) => {
     setStoredFiles(files);
   };
 
+  const setStoredFilesInLocalStorage = (files: FilesState) => {
+    return localStorage.setItem('files', JSON.stringify(files));
+  };
+
   useEffect(() => {
-    localStorage.setItem('files', JSON.stringify(storedFiles));
+    setStoredFilesInLocalStorage(storedFiles);
   }, [storedFiles]);
 
   return {

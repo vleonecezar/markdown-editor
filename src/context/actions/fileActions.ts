@@ -1,0 +1,3 @@
+export const CREATE_FILE = 'CREATE_FILE';
+export const REMOVE_FILE = 'REMOVE_FILE';
+export const HANDLE_FAVORITE = 'HANDLE_FAVORITE';

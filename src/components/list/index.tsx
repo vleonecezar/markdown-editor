@@ -1,27 +1,24 @@
 /* eslint-disable import/no-extraneous-dependencies */
+
+import { useState } from 'react';
 import { BsHeart, BsTrash } from 'react-icons/bs';
+import { useFile } from '../../context';
+import { CREATE_FILE, REMOVE_FILE } from '../../context/actions/fileActions';
+import { FilesState } from '../../types';
 
 import { Container, ListComponent, ListItem } from './styled';
 
-interface File {
-  id: number;
-  name: string;
-  date: string;
-}
-
-const files: File[] = [
-  { id: 1, name: 'File one', date: '00/00/00' },
-  { id: 2, name: 'File Two', date: '00/00/00' },
-];
-
 function List() {
+  const { state, dispatch } = useFile();
+  const [files] = useState<FilesState>(state);
+
   return (
     <Container>
       <ListComponent>
         {files.map((file) => (
           <ListItem key={file.id}>
-            <span>{file.name}</span>
-            <span>Last Update: {file.date} - 12:00</span>
+            <span>{file.title}</span>
+            <span>Last Update: {file.lastUpdate}</span>
             <div>
               <button type="button">
                 <BsHeart />
