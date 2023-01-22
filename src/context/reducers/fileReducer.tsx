@@ -13,6 +13,13 @@ export const initialState: FilesState = [
     lastUpdate: '00/00/00',
     isFavorite: false,
   },
+  {
+    id: 2,
+    title: 'This is an example 2',
+    body: 'Hello World 2!',
+    lastUpdate: '00/00/00',
+    isFavorite: true,
+  },
 ];
 
 const createFile = (state: FilesState, payload: File) => {

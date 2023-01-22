@@ -8,7 +8,7 @@ function SideNav() {
           <NavigationLink to="/">Files</NavigationLink>
         </li>
         <li>
-          <NavigationLink to="/">Favorites</NavigationLink>
+          <NavigationLink to="/favorites">Favorites</NavigationLink>
         </li>
         <li>
           <NavigationLink to="/">New File</NavigationLink>
