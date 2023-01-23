@@ -8,6 +8,24 @@ export const Navigation = styled.nav`
 
   ul {
     list-style: none;
+
+    > li button {
+      background-color: transparent;
+      border: none;
+
+      color: var(--text-color);
+
+      font-size: 1.2rem;
+      padding: 25px 0;
+      text-align: center;
+      transition: 0.2s;
+      width: 100%;
+      cursor: pointer;
+
+      &:hover {
+        background-color: var(--action-color);
+      }
+    }
   }
 `;
 

@@ -1,6 +1,12 @@
+import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import Modal from '../modal';
 import { Navigation, NavigationLink } from './styled';
 
 function SideNav() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { pathname } = useLocation();
+
   return (
     <Navigation>
       <ul>
@@ -10,10 +16,15 @@ function SideNav() {
         <li>
           <NavigationLink to="/favorites">Favorites</NavigationLink>
         </li>
-        <li>
-          <NavigationLink to="/">New File</NavigationLink>
-        </li>
+        {pathname !== '/editor' && (
+          <li>
+            <button type="button" onClick={() => setIsModalOpen(true)}>
+              New File
+            </button>
+          </li>
+        )}
       </ul>
+      {isModalOpen && <Modal setIsModalOpen={setIsModalOpen} />}
     </Navigation>
   );
 }
