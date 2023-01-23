@@ -1,15 +1,16 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
 import { BsHeart, BsHeartFill, BsTrash } from 'react-icons/bs';
-import { Action, FilesState } from '../../types';
+import { useLocation } from 'react-router-dom';
+import { useFile } from '../../context';
 import { Container, ListComponent, ListItem } from './styled';
 
-interface ContextArgument {
-  files: FilesState;
-  dispatch: React.Dispatch<Action>;
-}
+function List() {
+  const { state, dispatch } = useFile();
+  const { pathname } = useLocation();
+  const favorites = state.filter((file) => file.isFavorite);
+  const files = pathname === '/' ? state : favorites;
 
-function List({ files, dispatch }: ContextArgument) {
   const handleFavorite = (id: number) => {
     dispatch({ type: 'HANDLE_FAVORITE', payload: id });
   };
