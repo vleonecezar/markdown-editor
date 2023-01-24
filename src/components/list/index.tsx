@@ -1,36 +1,52 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
 import { BsHeart, BsHeartFill, BsTrash } from 'react-icons/bs';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useFile } from '../../context';
 import { Container, ListComponent, ListItem } from './styled';
 
 function List() {
   const { state, dispatch } = useFile();
   const { pathname } = useLocation();
+  const navigate = useNavigate();
   const favorites = state.filter((file) => file.isFavorite);
   const files = pathname === '/' ? state : favorites;
 
-  const handleFavorite = (id: number) => {
+  const handleFavorite = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+    id: number
+  ) => {
+    event.stopPropagation();
     dispatch({ type: 'HANDLE_FAVORITE', payload: id });
   };
 
-  const removeFile = (id: number) => {
+  const removeFile = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+    id: number
+  ) => {
+    event.stopPropagation();
     dispatch({ type: 'REMOVE_FILE', payload: id });
+  };
+
+  const openFileOnEditor = (id: number) => {
+    navigate(`/editor/${id}`);
   };
 
   return (
     <Container>
       <ListComponent>
         {files.map(({ id, title, lastUpdate, isFavorite }) => (
-          <ListItem key={id}>
+          <ListItem key={id} onClick={() => openFileOnEditor(id)}>
             <span>{title}</span>
             <span>Last Update: {lastUpdate}</span>
             <div>
-              <button type="button" onClick={() => handleFavorite(id)}>
+              <button
+                type="button"
+                onClick={(event) => handleFavorite(event, id)}
+              >
                 {isFavorite ? <BsHeartFill /> : <BsHeart />}
               </button>
-              <button type="button" onClick={() => removeFile(id)}>
+              <button type="button" onClick={(event) => removeFile(event, id)}>
                 <BsTrash />
               </button>
             </div>

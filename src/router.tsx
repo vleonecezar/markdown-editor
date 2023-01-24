@@ -7,8 +7,8 @@ export default function Router() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<FileList />} />
-        <Route path="/editor" element={<Editor />} />
         <Route path="/favorites" element={<FileList />} />
+        <Route path="/editor/:id" element={<Editor />} />
       </Routes>
     </BrowserRouter>
   );

@@ -9,14 +9,14 @@ export const initialState: FilesState = [
   {
     id: 1,
     title: 'This is an example',
-    body: 'Hello World!',
+    body: '#Hello World!',
     lastUpdate: '00/00/00',
     isFavorite: false,
   },
   {
     id: 2,
     title: 'This is an example 2',
-    body: 'Hello World 2!',
+    body: '##Hello World 2!',
     lastUpdate: '00/00/00',
     isFavorite: true,
   },
