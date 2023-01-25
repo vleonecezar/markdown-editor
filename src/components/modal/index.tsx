@@ -1,23 +1,31 @@
-import React, { useRef } from 'react';
 import Button from '../button';
 import { Background, DiscardButton, ModalContainer } from './styled';
 
+type SetIsModalOpen = React.Dispatch<React.SetStateAction<boolean>>;
+
+type Event = React.MouseEvent<HTMLDivElement, MouseEvent>;
+
 interface Props {
-  setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsModalOpen: SetIsModalOpen;
 }
 
-function Modal({ setIsModalOpen }: Props) {
-  const backgroundElement = useRef<HTMLDivElement>(null);
-  const closeModal = (element: HTMLElement) => {
-    if (element === backgroundElement.current) {
-      setIsModalOpen(false);
-    }
-  };
+const closeModalByClickOnBackground = (
+  event: Event,
+  setIsModalOpen: SetIsModalOpen
+) => {
+  if (event.target === event.currentTarget) {
+    setIsModalOpen(false);
+  }
+};
 
+const closeModalByClickOnButton = (setIsModalOpen: SetIsModalOpen) => {
+  setIsModalOpen(false);
+};
+
+function Modal({ setIsModalOpen }: Props) {
   return (
     <Background
-      ref={backgroundElement}
-      onClick={({ target }) => closeModal(target as HTMLElement)}
+      onClick={(event) => closeModalByClickOnBackground(event, setIsModalOpen)}
     >
       <ModalContainer>
         <label htmlFor="title">
@@ -25,7 +33,10 @@ function Modal({ setIsModalOpen }: Props) {
           <input type="text" />
         </label>
         <div>
-          <DiscardButton type="button" onClick={() => setIsModalOpen(false)}>
+          <DiscardButton
+            type="button"
+            onClick={() => closeModalByClickOnButton(setIsModalOpen)}
+          >
             Discard
           </DiscardButton>
           <Button type="button">Create</Button>
