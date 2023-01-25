@@ -1,5 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
-
 import { BsHeart, BsHeartFill, BsTrash } from 'react-icons/bs';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useFile } from '../../context';
@@ -17,7 +15,7 @@ function List() {
     id: number
   ) => {
     event.stopPropagation();
-    dispatch({ type: 'HANDLE_FAVORITE', payload: id });
+    dispatch({ type: 'TOGGLE_FAVORITE', payload: id });
   };
 
   const removeFile = (
@@ -25,7 +23,7 @@ function List() {
     id: number
   ) => {
     event.stopPropagation();
-    dispatch({ type: 'REMOVE_FILE', payload: id });
+    dispatch({ type: 'DELETE_FILE', payload: id });
   };
 
   const openFileOnEditor = (id: number) => {

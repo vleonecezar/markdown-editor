@@ -1,32 +1,41 @@
-import {
-  CREATE_FILE,
-  REMOVE_FILE,
-  HANDLE_FAVORITE,
-} from '../context/actions/fileActions';
+import * as ACTIONS from '../context/actions/fileActions';
 
 export interface File {
   id: number;
   title: string;
-  body?: string;
+  body: string;
   lastUpdate: string;
   isFavorite: boolean;
 }
 
-type FilesState = File[] | [];
-
 export interface CreateFileAction {
-  type: typeof CREATE_FILE;
-  payload: File;
+  type: typeof ACTIONS.CREATE_FILE;
+  payload: {
+    id: number;
+    title: string;
+  };
 }
 
-export interface RemoveFileAction {
-  type: typeof REMOVE_FILE;
+export interface SaveFileAction {
+  type: typeof ACTIONS.SAVE_FILE;
+  payload: {
+    id: number;
+    body: string;
+  };
+}
+
+export interface DeleteFileAction {
+  type: typeof ACTIONS.DELETE_FILE;
   payload: number;
 }
 
-export interface HandleFavoriteAction {
-  type: typeof HANDLE_FAVORITE;
+export interface ToggleFavoriteAction {
+  type: typeof ACTIONS.TOGGLE_FAVORITE;
   payload: number;
 }
 
-export type Action = CreateFileAction | RemoveFileAction | HandleFavoriteAction;
+export type Action =
+  | CreateFileAction
+  | SaveFileAction
+  | DeleteFileAction
+  | ToggleFavoriteAction;

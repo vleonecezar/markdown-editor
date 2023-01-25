@@ -1,3 +1,4 @@
 export const CREATE_FILE = 'CREATE_FILE';
-export const REMOVE_FILE = 'REMOVE_FILE';
-export const HANDLE_FAVORITE = 'HANDLE_FAVORITE';
+export const SAVE_FILE = 'SAVE_FILE';
+export const DELETE_FILE = 'DELETE_FILE';
+export const TOGGLE_FAVORITE = 'TOGGLE_FAVORITE';

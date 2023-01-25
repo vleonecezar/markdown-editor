@@ -1,11 +1,11 @@
 import React, { createContext, useContext, useMemo, useReducer } from 'react';
-import { Action, FilesState } from '../types';
+import { Action, File } from '../types';
 import filesReducer, { initialState } from './reducers/fileReducer';
 
 type Children = React.ReactNode;
 
 interface ContextArgument {
-  state: FilesState;
+  state: File[];
   dispatch: React.Dispatch<Action>;
 }
 
