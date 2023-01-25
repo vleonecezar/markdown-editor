@@ -3,17 +3,13 @@ import { File } from '../types';
 
 function useStorage() {
   const getStoredFiles = (): File[] | [] => {
-    return JSON.parse(localStorage.getItem('files') as string) || [];
+    return JSON.parse(localStorage.getItem('storedFiles') as string) || [];
   };
 
   const [storedFiles, setStoredFiles] = useState<File[]>(getStoredFiles());
 
-  const handleStoredFiles = (files: File[]) => {
-    setStoredFiles(files);
-  };
-
   const setStoredFilesInLocalStorage = (files: File[]) => {
-    return localStorage.setItem('files', JSON.stringify(files));
+    return localStorage.setItem('storedFiles', JSON.stringify(files));
   };
 
   useEffect(() => {
@@ -22,7 +18,7 @@ function useStorage() {
 
   return {
     storedFiles,
-    handleStoredFiles,
+    setStoredFiles,
   };
 }
 
