@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { FileCount, FileName, HeaderContainer, SaveButton } from './styled';
 
 function Header() {
@@ -12,4 +13,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default memo(Header);

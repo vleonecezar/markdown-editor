@@ -1,22 +1,11 @@
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { useFile } from '../../context';
-import { File } from '../../types';
-
 import { Container, MarkdownContent, MarkdownPreview } from './styled';
 
-function TextArea() {
-  const { state } = useFile();
-  const [file, setFile] = useState<File[]>([]);
-  const { id } = useParams<{ id: string }>();
-  const [text, setText] = useState('');
+interface Props {
+  text: string | undefined;
+  setText: (text: string | undefined) => void;
+}
 
-  useEffect(() => {
-    if (id) {
-      setFile(state.filter((f) => f.id === +id));
-      setText(file[0]?.body ?? '');
-    }
-  }, [id, state, file]);
+function TextArea({ text, setText }: Props) {
   return (
     <Container>
       <MarkdownContent
