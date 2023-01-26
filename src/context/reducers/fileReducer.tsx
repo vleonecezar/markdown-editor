@@ -1,9 +1,9 @@
 import { Action, File } from '../../types';
 import getDate from '../../utils/getDate';
-import getUniqueId from '../../utils/getUniqueId';
 import * as ACTIONS from '../actions/fileActions';
 
 export interface CreateFilePayload {
+  id: number;
   title: string;
 }
 
@@ -30,11 +30,11 @@ export const initialState: File[] = [
 ];
 
 const createFile = (state: File[], payload: CreateFilePayload) => {
-  const { title } = payload;
+  const { id, title } = payload;
   return [
     ...state,
     {
-      id: getUniqueId(state),
+      id,
       title,
       body: '',
       lastUpdate: getDate(),

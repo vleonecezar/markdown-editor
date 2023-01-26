@@ -11,6 +11,7 @@ export interface File {
 export interface CreateFileAction {
   type: typeof ACTIONS.CREATE_FILE;
   payload: {
+    id: number;
     title: string;
   };
 }
