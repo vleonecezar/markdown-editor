@@ -1,17 +1,37 @@
+import { useRef, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { useFile } from '../../context';
 import { Container, MarkdownContent, MarkdownPreview } from './styled';
 
-interface Props {
-  text: string | undefined;
-  setText: (text: string | undefined) => void;
-}
+function TextArea() {
+  const { state, dispatch } = useFile();
+  const { id } = useParams<{ id: string }>();
+  const file = state.find((f) => f.id === Number(id));
+  const [text, setText] = useState(file?.body);
+  const timeoutId = useRef<NodeJS.Timeout>();
 
-function TextArea({ text, setText }: Props) {
+  const saveFile = (value: string) => {
+    if (id) {
+      const id2 = +id;
+
+      clearTimeout(timeoutId.current);
+      timeoutId.current = setTimeout(() => {
+        dispatch({ type: 'SAVE_FILE', payload: { id: id2, body: value } });
+      }, 1000);
+    }
+  };
+
+  const handleTextAndSave = (value: string) => {
+    setText(value);
+    saveFile(value);
+  };
+
   return (
     <Container>
       <MarkdownContent
         value={text}
         placeholder="Your Text Here..."
-        onChange={({ target }) => setText(target.value)}
+        onChange={({ target }) => handleTextAndSave(target.value)}
       />
       <MarkdownPreview>{text}</MarkdownPreview>
     </Container>
