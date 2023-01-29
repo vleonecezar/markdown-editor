@@ -37,6 +37,7 @@ function List() {
           <ListItem key={id} onClick={() => openFileOnEditor(id)}>
             <span>{title}</span>
             <span>Last Update: {lastUpdate}</span>
+
             <div>
               <button
                 type="button"

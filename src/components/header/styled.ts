@@ -20,11 +20,13 @@ export const FileCount = styled.span`
   min-width: 250px;
   text-align: center;
   color: var(--text-color);
+  font-size: 1rem;
 `;
 
 export const FileName = styled.span`
   margin-right: 25px;
   color: var(--text-color);
+  font-size: 1.2rem;
 `;
 
 export const SaveButton = styled(Button)`

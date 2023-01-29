@@ -15,7 +15,7 @@ export const Navigation = styled.nav`
 
       color: var(--text-color);
 
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       padding: 25px 0;
       text-align: center;
       transition: 0.2s;
@@ -32,7 +32,7 @@ export const Navigation = styled.nav`
 export const NavigationLink = styled(Link)`
   color: var(--text-color);
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   display: block;
   padding: 25px 0;
   text-align: center;

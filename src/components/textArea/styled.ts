@@ -6,6 +6,7 @@ export const Container = styled.div`
   width: 100%;
   display: flex;
   background-color: var(--secondary-color);
+  overflow: hidden;
 `;
 
 export const MarkdownContent = styled.textarea`

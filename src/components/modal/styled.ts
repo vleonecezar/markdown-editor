@@ -25,7 +25,7 @@ export const ModalContainer = styled.div`
   justify-content: center;
 
   > label {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     color: var(--text-color);
     display: flex;
     flex-direction: column;

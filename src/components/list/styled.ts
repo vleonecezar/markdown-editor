@@ -16,43 +16,56 @@ export const ListItem = styled.li`
   cursor: pointer;
   background-color: var(--primary-color);
   width: 100%;
-  max-width: 1200px;
-
+  max-width: 1250px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-
-  padding: 15px 15px;
+  padding: 18px;
   border: 1px solid var(--action-color);
   border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s;
 
-  & + li {
-    margin-top: 20px;
+  + li {
+    margin-top: 10px;
   }
 
-  > span {
-    font-size: 1rem;
-    color: var(--text-color);
+  > div {
+    flex: 1;
+    display: flex;
+    justify-content: end;
   }
 
   > div button {
+    font-size: 1.4rem;
     background-color: transparent;
     border: none;
-    padding: 0;
+    cursor: pointer;
+    transition: 0.2s;
 
-    & + button {
-      margin-left: 15px;
+    + button {
+      margin-left: 10px;
     }
 
-    > svg {
-      font-size: 1.3rem;
-      color: white;
-      cursor: pointer;
-      transition: 0.2s;
-
-      &:hover {
-        filter: brightness(60%);
-      }
+    &:hover {
+      color: var(--action-color);
     }
+  }
+
+  > span {
+    flex: 1;
+    font-size: 1.1rem;
+  }
+
+  > span,
+  button {
+    color: var(--text-color);
+  }
+
+  > span:nth-child(2) {
+    text-align: center;
+  }
+
+  &:hover {
+    filter: brightness(90%);
   }
 `;
