@@ -16,7 +16,7 @@ function SideNav() {
         <li>
           <NavigationLink to="/favorites">Favorites</NavigationLink>
         </li>
-        {pathname !== '/editor' && (
+        {!pathname.includes('/editor') && (
           <li>
             <button type="button" onClick={() => setIsModalOpen(true)}>
               New File
