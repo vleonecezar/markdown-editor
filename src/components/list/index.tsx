@@ -23,7 +23,10 @@ function List() {
     id: number
   ) => {
     event.stopPropagation();
-    dispatch({ type: 'DELETE_FILE', payload: id });
+    const response = window.confirm(
+      'Are you sure you want to delete this file?'
+    );
+    if (response) dispatch({ type: 'DELETE_FILE', payload: id });
   };
 
   const openFileOnEditor = (id: number) => {
