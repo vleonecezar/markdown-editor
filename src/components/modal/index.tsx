@@ -24,13 +24,18 @@ function Modal({ setIsModalOpen }: Props) {
     }
   };
 
+  const validation = () => {
+    const noSpaceRegex = !/^\s*$/.test(title);
+    return title && title.length <= 30 && noSpaceRegex;
+  };
+
   const createFile = () => {
-    if (title && title.length <= 30) {
+    if (validation()) {
       const id = getUniqueId(state);
       dispatch({ type: 'CREATE_FILE', payload: { id, title } });
       navigate(`/editor/${id}`);
     } else {
-      setInputError(true); /* temporary */
+      setInputError(true);
     }
   };
 
