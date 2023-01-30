@@ -1,19 +1,11 @@
 import styled from 'styled-components';
-import Button from '../button';
 
-export const HeaderContainer = styled.header`
+export const Header = styled.header`
   background-color: var(--primary-color);
   height: 50px;
   color: var(--text-color);
   display: flex;
   align-items: center;
-
-  div {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
 `;
 
 export const FileCount = styled.span`
@@ -23,13 +15,8 @@ export const FileCount = styled.span`
   font-size: 1rem;
 `;
 
-export const FileName = styled.span`
-  margin-right: 25px;
+export const FileTitle = styled.span`
   color: var(--text-color);
   font-size: 1.2rem;
-`;
-
-export const SaveButton = styled(Button)`
-  height: 25px;
-  width: 60px;
+  margin: 0 auto;
 `;
