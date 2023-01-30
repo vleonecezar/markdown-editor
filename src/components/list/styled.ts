@@ -23,7 +23,7 @@ export const ListItem = styled.li`
   border: 1px solid var(--action-color);
   border-radius: 5px;
   cursor: pointer;
-  transition: 0.2s;
+  transition: 0.2s filter;
 
   + li {
     margin-top: 10px;
@@ -40,7 +40,7 @@ export const ListItem = styled.li`
     background-color: transparent;
     border: none;
     cursor: pointer;
-    transition: 0.2s;
+    transition: 0.2s color;
 
     + button {
       margin-left: 10px;

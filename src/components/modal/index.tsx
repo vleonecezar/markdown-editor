@@ -15,6 +15,7 @@ interface Props {
 function Modal({ setIsModalOpen }: Props) {
   const { state, dispatch } = useFile();
   const [title, setTitle] = useState('');
+  const [inputError, setInputError] = useState(false);
   const navigate = useNavigate();
 
   const closeModalByClickOnBackground = (event: Event) => {
@@ -29,8 +30,15 @@ function Modal({ setIsModalOpen }: Props) {
       dispatch({ type: 'CREATE_FILE', payload: { id, title } });
       navigate(`/editor/${id}`);
     } else {
-      alert('Please, enter the file name.'); /* temporary */
+      setInputError(true); /* temporary */
     }
+  };
+
+  const a = (target: string) => {
+    if (inputError) {
+      setInputError(false);
+    }
+    setTitle(target);
   };
 
   return (
@@ -43,9 +51,10 @@ function Modal({ setIsModalOpen }: Props) {
             value={title}
             autoFocus
             maxLength={30}
-            onChange={({ target }) => setTitle(target.value)}
+            onChange={({ target }) => a(target.value)}
           />
         </label>
+        {inputError && <span>Enter the file name.</span>}
         <div>
           <DiscardButton type="button" onClick={() => setIsModalOpen(false)}>
             Discard

@@ -23,6 +23,7 @@ export const ModalContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
 
   > label {
     font-size: 1.2rem;
@@ -30,22 +31,28 @@ export const ModalContainer = styled.div`
     display: flex;
     flex-direction: column;
     text-align: center;
+    position: relative;
 
     > input {
       font-size: 1.1rem;
       width: 400px;
       padding: 5px 5px;
-      margin: 10px 0 30px;
       border: none;
       border-radius: 5px;
+      margin: 10px 0 40px;
 
       &:focus {
-        &:focus {
-          outline: 2px solid var(--action-color);
-        }
+        outline: 2px solid var(--action-color);
       }
     }
   }
+
+  > span {
+    color: red;
+    position: absolute;
+    top: 95px;
+  }
+
   > div {
     width: 200px;
     display: flex;

@@ -29,6 +29,7 @@ function TextArea() {
   return (
     <Container>
       <MarkdownContent
+        autoFocus
         value={text}
         placeholder="Your Text Here..."
         onChange={({ target }) => handleTextAndSave(target.value)}
