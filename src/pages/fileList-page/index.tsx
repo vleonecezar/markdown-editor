@@ -1,16 +1,16 @@
 import Header from '../../components/header';
-import List from '../../components/list';
+import MainContainer from '../../components/main-container';
 import SideNav from '../../components/sideNav';
-import Container from './styled';
+import List from '../../components/list';
 
 function FileList() {
   return (
     <>
       <Header />
-      <Container>
+      <MainContainer>
         <SideNav />
         <List />
-      </Container>
+      </MainContainer>
     </>
   );
 }

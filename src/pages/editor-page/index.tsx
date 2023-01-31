@@ -1,18 +1,18 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 
-import TextArea from '../../components/textArea';
-import SideNav from '../../components/sideNav';
-import Container from './styled';
 import Header from '../../components/header';
+import MainContainer from '../../components/main-container';
+import SideNav from '../../components/sideNav';
+import TextArea from '../../components/textArea';
 
 function Editor() {
   return (
     <>
       <Header />
-      <Container>
+      <MainContainer>
         <SideNav />
         <TextArea />
-      </Container>
+      </MainContainer>
     </>
   );
 }
