@@ -1,31 +1,32 @@
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import Modal from '../modal';
-import { Navigation, NavigationLink } from './styled';
+
+import * as S from './styled';
 
 function SideNav() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { pathname } = useLocation();
 
   return (
-    <Navigation>
-      <ul>
+    <S.Navigation>
+      <S.List>
         <li>
-          <NavigationLink to="/">Files</NavigationLink>
+          <S.ItemLink to="/">Files</S.ItemLink>
         </li>
         <li>
-          <NavigationLink to="/favorites">Favorites</NavigationLink>
+          <S.ItemLink to="/favorites">Favorites</S.ItemLink>
         </li>
         {!pathname.includes('/editor') && (
           <li>
-            <button type="button" onClick={() => setIsModalOpen(true)}>
+            <S.NewFileButton type="button" onClick={() => setIsModalOpen(true)}>
               New File
-            </button>
+            </S.NewFileButton>
           </li>
         )}
-      </ul>
+      </S.List>
       {isModalOpen && <Modal setIsModalOpen={setIsModalOpen} />}
-    </Navigation>
+    </S.Navigation>
   );
 }
 
