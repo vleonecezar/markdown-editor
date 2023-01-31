@@ -3,8 +3,8 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useFile } from '../../context';
 import getUniqueId from '../../utils/getUniqueId';
-import Button from '../button';
-import { Background, DiscardButton, ModalContainer } from './styled';
+
+import * as S from './styled';
 
 type Event = React.MouseEvent<HTMLDivElement, MouseEvent>;
 
@@ -18,19 +18,19 @@ function Modal({ setIsModalOpen }: Props) {
   const [inputError, setInputError] = useState(false);
   const navigate = useNavigate();
 
-  const closeModalByClickOnBackground = (event: Event) => {
+  const closeModalByClickOnBackdrop = (event: Event) => {
     if (event.target === event.currentTarget) {
       setIsModalOpen(false);
     }
   };
 
-  const validation = () => {
-    const noSpaceRegex = !/^\s*$/.test(title);
-    return title && title.length <= 30 && noSpaceRegex;
+  const inputValidation = () => {
+    const titleHasNotOnlySpace = !/^\s*$/.test(title);
+    return title && title.length <= 30 && titleHasNotOnlySpace;
   };
 
-  const createFile = () => {
-    if (validation()) {
+  const createNewFile = () => {
+    if (inputValidation()) {
       const id = getUniqueId(state);
       dispatch({ type: 'CREATE_FILE', payload: { id, title } });
       navigate(`/editor/${id}`);
@@ -39,37 +39,37 @@ function Modal({ setIsModalOpen }: Props) {
     }
   };
 
-  const a = (target: string) => {
+  const handleInputErrorOnTyping = (value: string) => {
     if (inputError) {
       setInputError(false);
     }
-    setTitle(target);
+    setTitle(value);
   };
 
   return (
-    <Background onClick={(event) => closeModalByClickOnBackground(event)}>
-      <ModalContainer>
-        <label htmlFor="title">
+    <S.ModalBackdrop onClick={(event) => closeModalByClickOnBackdrop(event)}>
+      <S.Modal>
+        <S.Label htmlFor="title">
           File Name
-          <input
+          <S.Input
             type="text"
             value={title}
             autoFocus
             maxLength={30}
-            onChange={({ target }) => a(target.value)}
+            onChange={({ target }) => handleInputErrorOnTyping(target.value)}
           />
-        </label>
-        {inputError && <span>Enter the file name.</span>}
-        <div>
-          <DiscardButton type="button" onClick={() => setIsModalOpen(false)}>
+        </S.Label>
+        {inputError && <S.InputError>Enter the file name.</S.InputError>}
+        <S.ButtonsContainer>
+          <S.DiscardButton type="button" onClick={() => setIsModalOpen(false)}>
             Discard
-          </DiscardButton>
-          <Button type="button" onClick={() => createFile()}>
+          </S.DiscardButton>
+          <S.CreateButton type="button" onClick={() => createNewFile()}>
             Create
-          </Button>
-        </div>
-      </ModalContainer>
-    </Background>
+          </S.CreateButton>
+        </S.ButtonsContainer>
+      </S.Modal>
+    </S.ModalBackdrop>
   );
 }
 
