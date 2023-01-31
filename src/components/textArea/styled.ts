@@ -1,6 +1,6 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import Markdown from 'markdown-to-jsx';
 import styled from 'styled-components';
+import Markdown from 'markdown-to-jsx';
 
 export const Container = styled.div`
   width: 100%;
@@ -9,7 +9,7 @@ export const Container = styled.div`
   overflow: hidden;
 `;
 
-export const MarkdownContent = styled.textarea`
+export const TextArea = styled.textarea`
   resize: none;
   flex: 1;
   border: none;

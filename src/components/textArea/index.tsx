@@ -1,41 +1,39 @@
-import { useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useFile } from '../../context';
-import { Container, MarkdownContent, MarkdownPreview } from './styled';
+
+import * as S from './styled';
 
 function TextArea() {
   const { state, dispatch } = useFile();
   const { id } = useParams<{ id: string }>();
-  const file = state.find((f) => f.id === Number(id));
-  const [text, setText] = useState(file?.body);
-  const timeoutId = useRef<NodeJS.Timeout>();
+  const idNumber = Number(id);
+  const currentFile = state.find((file) => file.id === idNumber);
+  const [currentFileBody, setCurrentFileBody] = useState(currentFile?.body);
 
-  const saveFile = (value: string) => {
-    if (id) {
-      const id2 = +id;
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      if (currentFileBody) {
+        dispatch({
+          type: 'SAVE_FILE',
+          payload: { id: idNumber, body: currentFileBody },
+        });
+      }
+    }, 1000);
 
-      clearTimeout(timeoutId.current);
-      timeoutId.current = setTimeout(() => {
-        dispatch({ type: 'SAVE_FILE', payload: { id: id2, body: value } });
-      }, 1000);
-    }
-  };
-
-  const handleTextAndSave = (value: string) => {
-    setText(value);
-    saveFile(value);
-  };
+    return () => clearTimeout(timeoutId);
+  }, [currentFileBody, dispatch, idNumber]);
 
   return (
-    <Container>
-      <MarkdownContent
+    <S.Container>
+      <S.TextArea
+        placeholder="Enter your Text Here..."
         autoFocus
-        value={text}
-        placeholder="Your Text Here..."
-        onChange={({ target }) => handleTextAndSave(target.value)}
+        value={currentFileBody}
+        onChange={({ target }) => setCurrentFileBody(target.value)}
       />
-      <MarkdownPreview>{text}</MarkdownPreview>
-    </Container>
+      <S.MarkdownPreview>{currentFileBody}</S.MarkdownPreview>
+    </S.Container>
   );
 }
 
