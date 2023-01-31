@@ -7,6 +7,7 @@ export const List = styled.ul`
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: scroll;
 `;
 
 export const Item = styled.li`
@@ -22,7 +23,7 @@ export const Item = styled.li`
   transition: 0.2s filter;
 
   + li {
-    margin-top: 10px;
+    margin-top: 20px;
   }
 
   > span,

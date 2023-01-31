@@ -1,12 +1,9 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+const Container = styled.div`
   display: flex;
-  height: 100%;
-
-  ul {
-    list-style: none;
-  }
+  flex: 1;
+  overflow: hidden;
 `;
 
-export const a = styled.div``;
+export default Container;

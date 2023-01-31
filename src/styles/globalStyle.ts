@@ -8,16 +8,17 @@ const GlobalStyle = createGlobalStyle`
         --text-color: white;
     }
     
+    #root {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        font-family: 'Roboto', sans-serif;
+    }
+
     * {
         box-sizing: border-box;
         margin: 0;
         padding: 0;
-    }
-
-    body {
-        width: 100vw;
-        height: 100vh;
-        font-family: 'Roboto', sans-serif;
     }
 
     a {
