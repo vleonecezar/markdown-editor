@@ -3,8 +3,8 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useFiles } from '../../context';
 import { inputErrorMsg } from '../../constants/warnings';
-import { CREATE_NEW_FILE } from '../../context/actions/fileActions';
-import getUniqueId from '../../utils/getUniqueId';
+import { CREATE_NEW_FILE } from '../../context/actions/file-actions';
+import getUniqueId from '../../utils/get-unique-id';
 
 import * as S from './styled';
 

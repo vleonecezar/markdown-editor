@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import FileList from './pages/fileList-page';
-import Editor from './pages/editor-page';
+import FileList from './pages/file-list';
+import Editor from './pages/editor';
 
 export default function Router() {
   return (

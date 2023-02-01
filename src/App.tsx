@@ -1,4 +1,4 @@
-import GlobalStyle from './styles/globalStyle';
+import GlobalStyle from './styles/global-styles';
 import Router from './router';
 import FilesContextProvider from './context';
 

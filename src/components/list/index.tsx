@@ -4,7 +4,7 @@ import { useFiles } from '../../context';
 import {
   TOGGLE_FAVORITE_FILE,
   DELETE_FILE,
-} from '../../context/actions/fileActions';
+} from '../../context/actions/file-actions';
 import { deletedFileConfirmationMsg } from '../../constants/warnings';
 
 import * as S from './styled';

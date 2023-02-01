@@ -6,7 +6,7 @@ import React, {
   useEffect,
 } from 'react';
 import { Actions, File } from '../types';
-import filesReducer, { initialState } from './reducers/fileReducer';
+import filesReducer, { initialState } from './reducers/files-reducer';
 
 type Children = React.ReactNode;
 

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useFiles } from '../../context';
-import { SAVE_FILE } from '../../context/actions/fileActions';
+import { SAVE_FILE } from '../../context/actions/file-actions';
 
 import * as S from './styled';
 

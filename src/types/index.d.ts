@@ -1,4 +1,4 @@
-import * as ACTIONS from '../context/actions/fileActions';
+import * as ACTIONS from '../context/actions/file-actions';
 
 export interface File {
   id: number;

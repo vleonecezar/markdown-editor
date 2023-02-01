@@ -1,6 +1,6 @@
 import Header from '../../components/header';
 import MainContainer from '../../components/main-container';
-import SideNav from '../../components/sideNav';
+import SideNav from '../../components/aside-nav';
 import List from '../../components/list';
 
 function FileList() {
