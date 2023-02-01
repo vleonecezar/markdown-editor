@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const Navigation = styled.nav`
   background-color: var(--primary-color);

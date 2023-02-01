@@ -1,18 +1,18 @@
 import React, {
   createContext,
   useContext,
-  useEffect,
-  useMemo,
   useReducer,
+  useMemo,
+  useEffect,
 } from 'react';
-import { Action, File } from '../types';
+import { Actions, File } from '../types';
 import filesReducer, { initialState } from './reducers/fileReducer';
 
 type Children = React.ReactNode;
 
 interface ContextArguments {
   state: File[];
-  dispatch: React.Dispatch<Action>;
+  dispatch: React.Dispatch<Actions>;
 }
 
 const contextArguments = {

@@ -7,11 +7,11 @@ import getUniqueId from '../../utils/getUniqueId';
 
 import * as S from './styled';
 
-type Event = React.MouseEvent<HTMLDivElement, MouseEvent>;
-
 interface Props {
   setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
+
+type Event = React.MouseEvent<HTMLDivElement, MouseEvent>;
 
 function Modal({ setIsModalOpen }: Props) {
   const { state, dispatch } = useFiles();

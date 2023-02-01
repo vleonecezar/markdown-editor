@@ -1,13 +1,13 @@
-import { Action, File } from '../../types';
+import { Actions, File } from '../../types';
 import * as ACTIONS from '../actions/fileActions';
 import getDate from '../../utils/getDate';
 
-export interface CreateNewFilePayload {
+interface CreateNewFilePayload {
   id: number;
   title: string;
 }
 
-export interface SaveFilePayload {
+interface SaveFilePayload {
   id: number;
   body: string;
 }
@@ -69,7 +69,7 @@ const handleUnknownAction = () => {
   throw new Error('Unknown action type');
 };
 
-function filesReducer(state: File[], action: Action) {
+function filesReducer(state: File[], action: Actions) {
   switch (action.type) {
     case ACTIONS.CREATE_NEW_FILE:
       return createNewFile(state, action.payload);

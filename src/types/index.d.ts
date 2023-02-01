@@ -34,7 +34,7 @@ export interface ToggleFavoriteFileAction {
   payload: number;
 }
 
-export type Action =
+export type Actions =
   | CreateNewFileAction
   | SaveFileAction
   | DeleteFileAction

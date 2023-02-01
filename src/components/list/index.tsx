@@ -8,6 +8,8 @@ import {
 
 import * as S from './styled';
 
+type Event = React.MouseEvent<HTMLButtonElement, MouseEvent>;
+
 function List() {
   const { state, dispatch } = useFiles();
   const { pathname } = useLocation();
@@ -15,10 +17,7 @@ function List() {
   const files = pathname === '/' ? state : favoritesFiles;
   const navigate = useNavigate();
 
-  const handleFavoriteFile = (
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
-    id: number
-  ) => {
+  const handleFavoriteFile = (event: Event, id: number) => {
     event.stopPropagation();
     dispatch({ type: TOGGLE_FAVORITE_FILE, payload: id });
   };
@@ -27,10 +26,7 @@ function List() {
     return window.confirm('Are you sure you want to delete this file?');
   };
 
-  const deleteFileFromList = (
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
-    id: number
-  ) => {
+  const deleteFileFromList = (event: Event, id: number) => {
     event.stopPropagation();
 
     if (getDeletedFileConfirmation()) {
