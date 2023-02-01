@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export const Navigation = styled.nav`
   background-color: var(--primary-color);
@@ -26,13 +26,18 @@ export const NewFileButton = styled.button`
   }
 `;
 
-export const ItemLink = styled(Link)`
+export const ItemLink = styled(NavLink)`
   text-decoration: none;
   font-size: 1.3rem;
   display: block;
   padding: 25px 0;
   text-align: center;
   transition: 0.2s;
+
+  &.active,
+  &.active:hover {
+    background-color: var(--secondary-color);
+  }
 
   &:hover {
     background-color: var(--decorative-color);
