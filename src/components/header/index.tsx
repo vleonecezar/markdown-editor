@@ -1,15 +1,17 @@
 import { useLocation, useParams } from 'react-router-dom';
-import { useFile } from '../../context';
+import { useFiles } from '../../context';
 
 import * as S from './styled';
 
 function Header() {
-  const { state } = useFile();
-  const { pathname } = useLocation();
+  const { state } = useFiles();
   const { id } = useParams();
-
+  const idNumber = Number(id);
+  const title = idNumber
+    ? state.find((file) => file.id === idNumber)?.title
+    : undefined;
+  const { pathname } = useLocation();
   const isEditorPage = pathname.includes('/editor');
-  const title = id ? state.find((f) => f.id === +id)?.title : undefined;
 
   return (
     <S.Header>

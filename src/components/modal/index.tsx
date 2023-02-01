@@ -1,7 +1,8 @@
 /* eslint-disable jsx-a11y/no-autofocus */
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useFile } from '../../context';
+import { useFiles } from '../../context';
+import { CREATE_NEW_FILE } from '../../context/actions/fileActions';
 import getUniqueId from '../../utils/getUniqueId';
 
 import * as S from './styled';
@@ -13,7 +14,7 @@ interface Props {
 }
 
 function Modal({ setIsModalOpen }: Props) {
-  const { state, dispatch } = useFile();
+  const { state, dispatch } = useFiles();
   const [title, setTitle] = useState('');
   const [inputError, setInputError] = useState(false);
   const navigate = useNavigate();
@@ -32,18 +33,18 @@ function Modal({ setIsModalOpen }: Props) {
   const createNewFile = () => {
     if (inputValidation()) {
       const id = getUniqueId(state);
-      dispatch({ type: 'CREATE_FILE', payload: { id, title } });
+      dispatch({ type: CREATE_NEW_FILE, payload: { id, title } });
       navigate(`/editor/${id}`);
     } else {
       setInputError(true);
     }
   };
 
-  const handleInputErrorOnTyping = (value: string) => {
+  const handleInputErrorOnTyping = (titleValue: string) => {
     if (inputError) {
       setInputError(false);
     }
-    setTitle(value);
+    setTitle(titleValue);
   };
 
   return (

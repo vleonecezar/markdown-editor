@@ -8,8 +8,8 @@ export interface File {
   isFavorite: boolean;
 }
 
-export interface CreateFileAction {
-  type: typeof ACTIONS.CREATE_FILE;
+export interface CreateNewFileAction {
+  type: typeof ACTIONS.CREATE_NEW_FILE;
   payload: {
     id: number;
     title: string;
@@ -29,13 +29,13 @@ export interface DeleteFileAction {
   payload: number;
 }
 
-export interface ToggleFavoriteAction {
-  type: typeof ACTIONS.TOGGLE_FAVORITE;
+export interface ToggleFavoriteFileAction {
+  type: typeof ACTIONS.TOGGLE_FAVORITE_FILE;
   payload: number;
 }
 
 export type Action =
-  | CreateFileAction
+  | CreateNewFileAction
   | SaveFileAction
   | DeleteFileAction
-  | ToggleFavoriteAction;
+  | ToggleFavoriteFileAction;

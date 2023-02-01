@@ -1,8 +1,8 @@
 import { Action, File } from '../../types';
-import getDate from '../../utils/getDate';
 import * as ACTIONS from '../actions/fileActions';
+import getDate from '../../utils/getDate';
 
-export interface CreateFilePayload {
+export interface CreateNewFilePayload {
   id: number;
   title: string;
 }
@@ -20,16 +20,9 @@ export const initialState: File[] = [
     lastUpdate: '00/00/00',
     isFavorite: false,
   },
-  {
-    id: 2,
-    title: 'This is an example 2',
-    body: '##Hello World 2!',
-    lastUpdate: '00/00/00',
-    isFavorite: true,
-  },
 ];
 
-const createFile = (state: File[], payload: CreateFilePayload) => {
+const createNewFile = (state: File[], payload: CreateNewFilePayload) => {
   const { id, title } = payload;
   return [
     ...state,
@@ -55,10 +48,13 @@ const saveFile = (state: File[], payload: SaveFilePayload) => {
 };
 
 const deleteFile = (state: File[], payload: number) => {
-  return state.filter((file) => file.id !== payload);
+  return state.filter((file) => {
+    const id = payload;
+    return file.id !== id;
+  });
 };
 
-const toggleFavorite = (state: File[], payload: number) => {
+const toggleFavoriteFile = (state: File[], payload: number) => {
   return state.map((file) => {
     const id = payload;
     if (file.id === id) {
@@ -75,14 +71,14 @@ const handleUnknownAction = () => {
 
 function filesReducer(state: File[], action: Action) {
   switch (action.type) {
-    case ACTIONS.CREATE_FILE:
-      return createFile(state, action.payload);
+    case ACTIONS.CREATE_NEW_FILE:
+      return createNewFile(state, action.payload);
     case ACTIONS.SAVE_FILE:
       return saveFile(state, action.payload);
     case ACTIONS.DELETE_FILE:
       return deleteFile(state, action.payload);
-    case ACTIONS.TOGGLE_FAVORITE:
-      return toggleFavorite(state, action.payload);
+    case ACTIONS.TOGGLE_FAVORITE_FILE:
+      return toggleFavoriteFile(state, action.payload);
     default:
       return handleUnknownAction();
   }

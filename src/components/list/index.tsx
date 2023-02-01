@@ -1,23 +1,26 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 import { BsHeart, BsHeartFill, BsTrash } from 'react-icons/bs';
-import { useFile } from '../../context';
+import { useFiles } from '../../context';
+import {
+  TOGGLE_FAVORITE_FILE,
+  DELETE_FILE,
+} from '../../context/actions/fileActions';
 
 import * as S from './styled';
 
 function List() {
-  const { state, dispatch } = useFile();
+  const { state, dispatch } = useFiles();
   const { pathname } = useLocation();
+  const favoritesFiles = state.filter((file) => file.isFavorite);
+  const files = pathname === '/' ? state : favoritesFiles;
   const navigate = useNavigate();
-
-  const favorites = state.filter((file) => file.isFavorite);
-  const files = pathname === '/' ? state : favorites;
 
   const handleFavoriteFile = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
     id: number
   ) => {
     event.stopPropagation();
-    dispatch({ type: 'TOGGLE_FAVORITE', payload: id });
+    dispatch({ type: TOGGLE_FAVORITE_FILE, payload: id });
   };
 
   const getDeletedFileConfirmation = () => {
@@ -31,7 +34,7 @@ function List() {
     event.stopPropagation();
 
     if (getDeletedFileConfirmation()) {
-      dispatch({ type: 'DELETE_FILE', payload: id });
+      dispatch({ type: DELETE_FILE, payload: id });
     }
   };
 

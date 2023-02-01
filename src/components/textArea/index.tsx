@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { useFile } from '../../context';
+import { useFiles } from '../../context';
+import { SAVE_FILE } from '../../context/actions/fileActions';
 
 import * as S from './styled';
 
 function TextArea() {
-  const { state, dispatch } = useFile();
+  const { state, dispatch } = useFiles();
   const { id } = useParams<{ id: string }>();
   const idNumber = Number(id);
   const currentFile = state.find((file) => file.id === idNumber);
@@ -15,7 +16,7 @@ function TextArea() {
     const timeoutId = setTimeout(() => {
       if (currentFileBody) {
         dispatch({
-          type: 'SAVE_FILE',
+          type: SAVE_FILE,
           payload: { id: idNumber, body: currentFileBody },
         });
       }

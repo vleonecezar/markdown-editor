@@ -10,33 +10,34 @@ import filesReducer, { initialState } from './reducers/fileReducer';
 
 type Children = React.ReactNode;
 
-interface ContextArgument {
+interface ContextArguments {
   state: File[];
   dispatch: React.Dispatch<Action>;
 }
 
-const contextArgument = {
+const contextArguments = {
   state: initialState,
   dispatch: () => null,
 };
 
-const FileContext = createContext<ContextArgument>(contextArgument);
+const FilesContext = createContext<ContextArguments>(contextArguments);
 
-function FileContextProvider({ children }: { children: Children }) {
-  const storedFiles =
+function FilesContextProvider({ children }: { children: Children }) {
+  const localStorageFiles =
     JSON.parse(localStorage.getItem('storedFiles') as string) || [];
-
-  const a = storedFiles.length !== 0 ? storedFiles : initialState;
-  const [state, dispatch] = useReducer(filesReducer, a);
+  const getState = localStorageFiles.length ? localStorageFiles : initialState;
+  const [state, dispatch] = useReducer(filesReducer, getState);
   const value = useMemo(() => ({ state, dispatch }), [state, dispatch]);
 
   useEffect(() => {
     localStorage.setItem('storedFiles', JSON.stringify(state));
   }, [state]);
 
-  return <FileContext.Provider value={value}>{children}</FileContext.Provider>;
+  return (
+    <FilesContext.Provider value={value}>{children}</FilesContext.Provider>
+  );
 }
 
-export default FileContextProvider;
+export default FilesContextProvider;
 
-export const useFile = () => useContext(FileContext);
+export const useFiles = () => useContext(FilesContext);
