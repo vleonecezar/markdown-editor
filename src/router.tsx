@@ -9,6 +9,7 @@ export default function Router() {
         <Route path="/" element={<FileList />} />
         <Route path="/favorites" element={<FileList />} />
         <Route path="/editor/:id" element={<Editor />} />
+        <Route path="*" element={<p>Page not found!</p>} />
       </Routes>
     </BrowserRouter>
   );
