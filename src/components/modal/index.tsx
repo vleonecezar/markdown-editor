@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useFiles } from '../../context';
+import { inputErrorMsg } from '../../constants/warnings';
 import { CREATE_NEW_FILE } from '../../context/actions/fileActions';
 import getUniqueId from '../../utils/getUniqueId';
 
@@ -60,7 +61,7 @@ function Modal({ setIsModalOpen }: Props) {
             onChange={({ target }) => handleInputErrorOnTyping(target.value)}
           />
         </S.Label>
-        {inputError && <S.InputError>Enter the file name.</S.InputError>}
+        {inputError && <S.InputError>{inputErrorMsg}</S.InputError>}
         <S.ButtonsContainer>
           <S.DiscardButton type="button" onClick={() => setIsModalOpen(false)}>
             Discard

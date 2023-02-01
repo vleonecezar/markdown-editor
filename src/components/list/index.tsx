@@ -5,6 +5,7 @@ import {
   TOGGLE_FAVORITE_FILE,
   DELETE_FILE,
 } from '../../context/actions/fileActions';
+import { deletedFileConfirmationMsg } from '../../constants/warnings';
 
 import * as S from './styled';
 
@@ -23,7 +24,7 @@ function List() {
   };
 
   const getDeletedFileConfirmation = () => {
-    return window.confirm('Are you sure you want to delete this file?');
+    return window.confirm(deletedFileConfirmationMsg);
   };
 
   const deleteFileFromList = (event: Event, id: number) => {
