@@ -18,17 +18,12 @@ export const Item = styled.li`
   display: flex;
   align-items: center;
   padding: 18px;
-  border: 1px solid var(--action-color);
+  border: 1px solid var(--decorative-color);
   border-radius: 5px;
   transition: 0.2s filter;
 
   + li {
     margin-top: 20px;
-  }
-
-  > span,
-  button {
-    color: var(--text-color);
   }
 
   &:hover {
@@ -59,7 +54,7 @@ export const FavoriteButton = styled.button`
   transition: 0.2s color;
 
   &:hover {
-    color: var(--action-color);
+    color: var(--decorative-color);
   }
 `;
 

@@ -15,7 +15,6 @@ export const TextArea = styled.textarea`
   border: none;
   outline: none;
   border-right: 2px solid var(--primary-color);
-  color: var(--text-color);
   padding: 10px 30px;
   background-color: var(--secondary-color);
   font-size: 1rem;

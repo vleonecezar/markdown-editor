@@ -14,7 +14,6 @@ export const List = styled.ul`
 export const NewFileButton = styled.button`
   background-color: transparent;
   border: none;
-  color: var(--text-color);
   font-size: 1.3rem;
   padding: 25px 0;
   text-align: center;
@@ -23,12 +22,11 @@ export const NewFileButton = styled.button`
   cursor: pointer;
 
   &:hover {
-    background-color: var(--action-color);
+    background-color: var(--decorative-color);
   }
 `;
 
 export const ItemLink = styled(Link)`
-  color: var(--text-color);
   text-decoration: none;
   font-size: 1.3rem;
   display: block;
@@ -37,6 +35,6 @@ export const ItemLink = styled(Link)`
   transition: 0.2s;
 
   &:hover {
-    background-color: var(--action-color);
+    background-color: var(--decorative-color);
   }
 `;

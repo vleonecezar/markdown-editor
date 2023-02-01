@@ -25,8 +25,8 @@ export const ModalBackdrop = styled.div`
 export const Modal = styled.div`
   height: 200px;
   padding: 10px 30px;
-  background-color: black;
-  border: 1px solid var(--action-color);
+  background-color: var(--secondary-color);
+  border: 1px solid var(--decorative-color);
   border-radius: 5px;
   margin-top: 180px;
   display: flex;
@@ -49,7 +49,6 @@ export const Modal = styled.div`
 
 export const Label = styled.label`
   font-size: 1.2rem;
-  color: var(--text-color);
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -65,7 +64,7 @@ export const Input = styled.input`
   margin: 10px 0 40px;
 
   &:focus {
-    outline: 2px solid var(--action-color);
+    outline: 2px solid var(--decorative-color);
   }
 `;
 
@@ -86,7 +85,7 @@ export const CreateButton = styled.button`
   height: 35px;
   font-size: 1rem;
   padding: 0 10px;
-  background-color: var(--action-color);
+  background-color: var(--decorative-color);
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -98,9 +97,8 @@ export const CreateButton = styled.button`
 `;
 
 export const DiscardButton = styled(CreateButton)`
-  border: 1px solid var(--action-color);
+  border: 1px solid var(--decorative-color);
   background-color: transparent;
-  color: var(--text-color);
 
   &:hover {
     background-color: var(--primary-color);

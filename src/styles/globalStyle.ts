@@ -4,7 +4,7 @@ const GlobalStyle = createGlobalStyle`
     :root {
         --primary-color: rgb(40,40,40);
         --secondary-color: rgb(30,30,30);
-        --action-color: rgb(40, 146, 215);
+        --decorative-color: rgb(40, 146, 215);
         --text-color: white;
     }
     
@@ -12,13 +12,17 @@ const GlobalStyle = createGlobalStyle`
         display: flex;
         flex-direction: column;
         height: 100vh;
-        font-family: 'Roboto', sans-serif;
+        font-family: 'Roboto', Helvetica, sans-serif;
     }
 
     * {
         box-sizing: border-box;
         margin: 0;
         padding: 0;
+    }
+
+    span, button, label, a, textarea {
+        color: var(--text-color);
     }
 
     a {
