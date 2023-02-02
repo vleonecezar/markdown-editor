@@ -6,7 +6,7 @@ import useGetCurrentFile from '../../hooks/useGetCurrentFile';
 
 import * as S from './styled';
 
-function TextArea() {
+function MarkdownArea() {
   const { state, dispatch } = useFiles();
   const { id } = useParams();
   const idNumber = Number(id);
@@ -15,7 +15,7 @@ function TextArea() {
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
-      if (currentFileBody) {
+      if (currentFileBody || currentFileBody === '') {
         dispatch({
           type: SAVE_FILE,
           payload: { id: idNumber, body: currentFileBody },
@@ -39,4 +39,4 @@ function TextArea() {
   );
 }
 
-export default TextArea;
+export default MarkdownArea;

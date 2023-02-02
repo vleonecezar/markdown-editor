@@ -8,8 +8,9 @@ function Header() {
   const { state } = useFiles();
   const { id } = useParams();
   const idNumber = Number(id);
-  const currentFile = useGetCurrentFile(state, idNumber);
   const { pathname } = useLocation();
+
+  const currentFile = useGetCurrentFile(state, idNumber);
 
   return (
     <S.Header>
