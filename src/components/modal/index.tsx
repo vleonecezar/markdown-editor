@@ -2,9 +2,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useFiles } from '../../context';
+import useModal from '../../hooks/useModal';
 import { inputErrorMsg } from '../../constants/warnings';
-import { CREATE_NEW_FILE } from '../../context/actions/file-actions';
-import getUniqueId from '../../utils/get-unique-id';
 
 import * as S from './styled';
 
@@ -12,41 +11,26 @@ interface Props {
   setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-type Event = React.MouseEvent<HTMLDivElement, MouseEvent>;
-
 function Modal({ setIsModalOpen }: Props) {
   const { state, dispatch } = useFiles();
   const [title, setTitle] = useState('');
   const [inputError, setInputError] = useState(false);
   const navigate = useNavigate();
 
-  const closeModalByClickOnBackdrop = (event: Event) => {
-    if (event.target === event.currentTarget) {
-      setIsModalOpen(false);
-    }
-  };
-
-  const inputValidation = () => {
-    const titleHasNotOnlySpace = !/^\s*$/.test(title);
-    return title && title.length <= 30 && titleHasNotOnlySpace;
-  };
-
-  const createNewFile = () => {
-    if (inputValidation()) {
-      const id = getUniqueId(state);
-      dispatch({ type: CREATE_NEW_FILE, payload: { id, title } });
-      navigate(`/editor/${id}`);
-    } else {
-      setInputError(true);
-    }
-  };
-
-  const handleInputErrorOnTyping = (titleValue: string) => {
-    if (inputError) {
-      setInputError(false);
-    }
-    setTitle(titleValue);
-  };
+  const {
+    closeModalByClickOnBackdrop,
+    createNewFile,
+    handleInputErrorOnTyping,
+  } = useModal({
+    setIsModalOpen,
+    state,
+    title,
+    setTitle,
+    dispatch,
+    navigate,
+    inputError,
+    setInputError,
+  });
 
   return (
     <S.ModalBackdrop onClick={(event) => closeModalByClickOnBackdrop(event)}>
