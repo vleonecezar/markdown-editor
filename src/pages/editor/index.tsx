@@ -2,16 +2,16 @@
 
 import Header from '../../components/header';
 import MainContainer from '../../components/main-container';
-import SideNav from '../../components/aside-nav';
-import TextArea from '../../components/markdown-area';
+import AsideNav from '../../components/aside-nav';
+import MarkdownArea from '../../components/markdown-area';
 
 function Editor() {
   return (
     <>
       <Header />
       <MainContainer>
-        <SideNav />
-        <TextArea />
+        <AsideNav />
+        <MarkdownArea />
       </MainContainer>
     </>
   );

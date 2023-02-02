@@ -4,7 +4,7 @@ import Modal from '../modal';
 
 import * as S from './styled';
 
-function SideNav() {
+function AsideNav() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { pathname } = useLocation();
 
@@ -30,4 +30,4 @@ function SideNav() {
   );
 }
 
-export default SideNav;
+export default AsideNav;

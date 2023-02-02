@@ -1,6 +1,6 @@
 import Header from '../../components/header';
 import MainContainer from '../../components/main-container';
-import SideNav from '../../components/aside-nav';
+import AsideNav from '../../components/aside-nav';
 import List from '../../components/list';
 
 function FileList() {
@@ -8,7 +8,7 @@ function FileList() {
     <>
       <Header />
       <MainContainer>
-        <SideNav />
+        <AsideNav />
         <List />
       </MainContainer>
     </>
