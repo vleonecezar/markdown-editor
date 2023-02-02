@@ -39,3 +39,7 @@ export type Actions =
   | SaveFileAction
   | DeleteFileAction
   | ToggleFavoriteFileAction;
+
+export type Navigate = (path: string) => void;
+
+export type DispatchActions = React.Dispatch<Actions>;
