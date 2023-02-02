@@ -1,43 +1,29 @@
+import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { BsHeart, BsHeartFill, BsTrash } from 'react-icons/bs';
 import { useFiles } from '../../context';
-import {
-  TOGGLE_FAVORITE_FILE,
-  DELETE_FILE,
-} from '../../context/actions/file-actions';
-import { deletedFileConfirmationMsg } from '../../constants/warnings';
+import useList from '../../hooks/useList';
 
 import * as S from './styled';
 
-type Event = React.MouseEvent<HTMLButtonElement, MouseEvent>;
-
 function List() {
   const { state, dispatch } = useFiles();
+  const [files, setFiles] = useState(state);
   const { pathname } = useLocation();
-  const favoritesFiles = state.filter((file) => file.isFavorite);
-  const files = pathname === '/' ? state : favoritesFiles;
   const navigate = useNavigate();
 
-  const handleFavoriteFile = (event: Event, id: number) => {
-    event.stopPropagation();
-    dispatch({ type: TOGGLE_FAVORITE_FILE, payload: id });
-  };
+  const { openFileOnEditor, handleFavoriteFile, deleteFileFromList } = useList({
+    navigate,
+    dispatch,
+  });
 
-  const getDeletedFileConfirmation = () => {
-    return window.confirm(deletedFileConfirmationMsg);
-  };
-
-  const deleteFileFromList = (event: Event, id: number) => {
-    event.stopPropagation();
-
-    if (getDeletedFileConfirmation()) {
-      dispatch({ type: DELETE_FILE, payload: id });
+  useEffect(() => {
+    if (pathname === '/favorites') {
+      setFiles(state.filter((file) => file.isFavorite));
+    } else if (pathname === '/') {
+      setFiles(state);
     }
-  };
-
-  const openFileOnEditor = (id: number) => {
-    navigate(`/editor/${id}`);
-  };
+  }, [pathname, state]);
 
   return (
     <S.List>
