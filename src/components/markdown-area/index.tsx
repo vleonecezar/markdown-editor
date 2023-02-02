@@ -2,14 +2,15 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useFiles } from '../../context';
 import { SAVE_FILE } from '../../context/actions/file-actions';
+import useGetCurrentFile from '../../hooks/useGetCurrentFile';
 
 import * as S from './styled';
 
 function TextArea() {
   const { state, dispatch } = useFiles();
-  const { id } = useParams<{ id: string }>();
+  const { id } = useParams();
   const idNumber = Number(id);
-  const currentFile = state.find((file) => file.id === idNumber);
+  const currentFile = useGetCurrentFile(state, idNumber);
   const [currentFileBody, setCurrentFileBody] = useState(currentFile?.body);
 
   useEffect(() => {
