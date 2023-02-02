@@ -3,12 +3,13 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { BsHeart, BsHeartFill, BsTrash } from 'react-icons/bs';
 import { useFiles } from '../../context';
 import useList from '../../hooks/useList';
+import { File } from '../../types';
 
 import * as S from './styled';
 
 function List() {
   const { state, dispatch } = useFiles();
-  const [files, setFiles] = useState(state);
+  const [files, setFiles] = useState<[] | File[]>([]);
   const { pathname } = useLocation();
   const navigate = useNavigate();
 
