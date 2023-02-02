@@ -23,10 +23,11 @@ const contextArguments = {
 const FilesContext = createContext<ContextArguments>(contextArguments);
 
 function FilesContextProvider({ children }: { children: Children }) {
-  const localStorageFiles =
-    JSON.parse(localStorage.getItem('storedFiles') as string) || [];
-  const getState = localStorageFiles.length ? localStorageFiles : initialState;
-  const [state, dispatch] = useReducer(filesReducer, getState);
+  const storedFiles: File[] = JSON.parse(
+    localStorage.getItem('storedFiles') as string
+  );
+  const chosenState: File[] = storedFiles.length ? storedFiles : initialState;
+  const [state, dispatch] = useReducer(filesReducer, chosenState);
   const value = useMemo(() => ({ state, dispatch }), [state, dispatch]);
 
   useEffect(() => {
