@@ -1,46 +1,63 @@
-# Getting Started with Create React App
+<div align="center">
+  
+# Markdown Editor
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Markdown Editor is a web app where you can create, edit, remove and favorite your own markdown texts.
 
-## Available Scripts
+[Features](#features) • [Technologies](#technologies) • [How to use](#how-to-use)
 
-In the project directory, you can run:
+![markdown-editor1](https://user-images.githubusercontent.com/76831929/216518911-b6f4aea0-c803-4f6e-a315-e03323782b76.png)
+![markdown-editor2](https://user-images.githubusercontent.com/76831929/216518925-58f98433-fcf6-4cd6-a7df-c4467b01c938.png)
 
-### `npm start`
+### [Preview](https://vleonecezar.github.io/markdown-editor/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+</div>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Features
 
-### `npm test`
+- Navigate between "file list" and "favorites list".
+- Create a new file.
+- Edit a file.
+- Delete a file.
+- Favorite a file.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Technologies
 
-### `npm run build`
+- [React](https://reactjs.org/)
+- [Markdown to JSX](https://www.npmjs.com/package/markdown-to-jsx)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## How to use
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+> To clone and run this application, you'll need Git and Node.js installed on your computer.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### From your command line:
 
-### `npm run eject`
+#### Clone this repository
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```
+  $ git clone https://github.com/vleonecezar/markdown-editor.git
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Go into the repository
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+  $ cd markdown-editor
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+#### Install dependencies
 
-## Learn More
+```
+  $ npm install
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### Run the app
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+  npm start
+```
+
+<hr />
+<div align="center">
+<a href="https://www.linkedin.com/in/vitor-leone-cezar/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a>
+<a href="mailto:vleone.job@gmail.com" target="_blank"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" target="_blank"></a>
+</div>
