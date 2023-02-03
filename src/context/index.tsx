@@ -23,9 +23,8 @@ const contextArguments = {
 const FilesContext = createContext<ContextArguments>(contextArguments);
 
 function FilesContextProvider({ children }: { children: Children }) {
-  const storedFiles: File[] = JSON.parse(
-    localStorage.getItem('storedFiles') as string
-  );
+  const storedFiles: File[] =
+    JSON.parse(localStorage.getItem('storedFiles') as string) || [];
   const chosenState: File[] = storedFiles.length ? storedFiles : initialState;
   const [state, dispatch] = useReducer(filesReducer, chosenState);
   const value = useMemo(() => ({ state, dispatch }), [state, dispatch]);
