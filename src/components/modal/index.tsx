@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/no-autofocus */
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useFiles } from '../../context';

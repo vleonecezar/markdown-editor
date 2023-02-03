@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-loop-func */
 import { File } from '../types';
 
 const getUniqueId = (files: File[]) => {

@@ -1,6 +1,6 @@
-import { Actions, File } from '../../types';
-import * as ACTIONS from '../actions/file-actions';
 import getDate from '../../utils/get-date';
+import * as ACTIONS from '../actions/file-actions';
+import { Actions, File } from '../../types';
 
 interface CreateNewFilePayload {
   id: number;

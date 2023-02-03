@@ -1,5 +1,3 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-
 import Header from '../../components/header';
 import MainContainer from '../../components/main-container';
 import AsideNav from '../../components/aside-nav';
