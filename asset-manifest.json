@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/markdown-editor/static/js/main.87047e53.js",
+    "main.js": "/markdown-editor/static/js/main.97db152a.js",
     "index.html": "/markdown-editor/index.html",
-    "main.87047e53.js.map": "/markdown-editor/static/js/main.87047e53.js.map"
+    "main.97db152a.js.map": "/markdown-editor/static/js/main.97db152a.js.map"
   },
   "entrypoints": [
-    "static/js/main.87047e53.js"
+    "static/js/main.97db152a.js"
   ]
 }
