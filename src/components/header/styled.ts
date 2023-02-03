@@ -15,5 +15,6 @@ export const FileCount = styled.span`
 
 export const FileTitle = styled.span`
   font-size: 1.2rem;
+  text-transform: uppercase;
   margin: 0 auto;
 `;

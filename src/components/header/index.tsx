@@ -15,6 +15,8 @@ function Header() {
   return (
     <S.Header>
       <S.FileCount>Total Files: {state.length}</S.FileCount>
+      {pathname === '/' && <S.FileTitle>FILE LIST</S.FileTitle>}
+      {pathname === '/favorites' && <S.FileTitle>FAVORITES LIST</S.FileTitle>}
       {pathname.includes('/editor') && (
         <S.FileTitle>{currentFile?.title}</S.FileTitle>
       )}
