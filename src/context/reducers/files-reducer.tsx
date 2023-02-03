@@ -1,4 +1,5 @@
 import getDate from '../../utils/get-date';
+import welcomeFile from '../../constants/welcome-file';
 import * as ACTIONS from '../actions/file-actions';
 import { Actions, File } from '../../types';
 
@@ -15,9 +16,9 @@ interface SaveFilePayload {
 export const initialState: File[] = [
   {
     id: 1,
-    title: 'This is an example',
-    body: '#Hello World!',
-    lastUpdate: '00/00/00',
+    title: welcomeFile.title,
+    body: welcomeFile.body,
+    lastUpdate: getDate(),
     isFavorite: false,
   },
 ];
